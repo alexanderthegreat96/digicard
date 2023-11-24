@@ -1,0 +1,19 @@
+{
+    "app_logo": "https://postcard.travel/assets/new_ui/icons/logo_noshad.png",
+    "app_name": "Digicard App",
+    "app_url": "http://my-app-url",
+    "image_limit": 10,
+    "copyright_text": "Developed by alexanderdth",
+    "sent_from_text": "Digicard",
+    "subject_text": "",
+    "message_text": "",
+    "meta_keywords": "digicard, virtual, card, beta",
+    "default_theme": "light",
+    "max_file_size": 15,
+    "enable_image_editor": true,
+    "enable_edit_from": true,
+    "enable_edit_subject": true,
+    "enable_edit_message": true,
+    "cookie_policy": "",
+    "terms_policy": ""
+}

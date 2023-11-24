@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" href="../icons/favicon.ico">
+    <title>Oradea Heritage - Admin - Setari Aplicatie</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/boostrap5.3.1/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" type="text/css" href="../js/libs/fontawesome-6.2.4/css/all.min.css">
+
+    <style>
+        .invalid{
+            border: 1px solid red;
+        }
+        .valid{
+            border: 1px solid green;
+        }
+
+        .ck-editor__editable_inline {
+            min-height: 350px;
+        }
+
+        .ck-content {
+            color: #000000;
+        }
+
+        .ck-editor{
+            max-height: 400px; /* Set the maximum height as needed */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+    </style>
+</head>
+
+<body>
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-3 border-bottom">
+        <img src=""
+             style="width: 20%; object-fit: contain;" id="logo-image"/> <h1><i class="fa-solid fa-hammer"></i> Admin</h1>
+    </header>
+
+    <main>
+        <nav class="navbar navbar-expand-lg navbar-light mb-2" aria-label="Tenth navbar example">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarsExample08">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="users.html"><i class="fa-solid fa-users-gear"></i> Utilizatori</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app-settings.html"><i class="fa-solid fa-sliders"></i> Setari Aplicatie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html"><i class="fa-solid fa-envelopes-bulk"></i> Setari Mailer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="files.html" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-file-pen"></i> File Manager</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-regular fa-user"></i> <span class="logged-in-user-username">Logged in user</span></a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdown08">
+                                <li><a class="dropdown-item" href="change_pass.html"><i class="fa-solid fa-key"></i> Schimba Parola</a></li>
+                                <li><a class="dropdown-item logout" href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h1>Setari Aplicatie</h1>
+        <p class="fs-5 col-md-8">
+           Configureaza aplicatia
+        </p>
+        <hr class="col-12 col-md-12 mb-5">
+
+        <div class="row g-5">
+            <!-- columns here -->
+            <div class="col-md-12">
+                <form class="border rounded-3 p-3">
+                    <input type="hidden" id="langCode" value="ro">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>URL logo aplicatie:</h6>
+                                        <input type="text" class="form-control typoControl"  id="app_logo" data-length="5"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Numele aplicatie / site-ului:</h6>
+                                        <input type="text" class="form-control typoControl"  id="app_name" data-length="5"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>URL aplicatie:</h6>
+                                        <input type="text" class="form-control typoControl"  id="app_url" data-length="5"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Limita imagini:</h6>
+                                        <input type="number" class="form-control typoControl"  id="image_limit"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Text footer / copyright:</h6>
+                                        <input type="text" class="form-control typoControl"  id="copyright_text" data-length="6"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Trimis de <small>(aplicabil doar daca [Editare trimis de] este dezactivat)</small>:</h6>
+                                        <input type="text" class="form-control" id="sent_from_text"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Subiect Email <small>(aplicabil doar daca [Editare subiect email] este dezactivat)</small>:</h6>
+                                        <input type="text" class="form-control" id="subject_text"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Mesaj <small>(aplicabil doar daca [Editare mesaj email] este dezactivat)</small>:</h6>
+                                        <textarea id="message_text" class="form-control" style="min-height: 100px; resize:none;"></textarea>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <label>Variabile mesaj / subiect:</label>
+                                    <ul style="font-size: 13px;">
+                                        <li>{from_name} - nume expeditor</li>
+                                        <li>{to_name} - nume destinatar</li>
+                                        <li>{to_email} - email destinatar</li>
+                                        <li>{date_with_hours} - data si ora curenta</li>
+                                        <li>{date_simple} - data curenta</li>
+                                        <li>{app_name} - Numele aplicatiei</li>
+                                        <li>{app_url} - Url-ul aplicatiei</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Meta Keywords / Cuvinte cheie:</h6>
+                                        <input type="text" class="form-control typoControl" id="meta_keywords" data-length="5"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Tema prestabilita:</h6>
+                                        <select id="default_theme" class="form-control typoControl">
+                                            <option value="light">Light / Deschis</option>
+                                            <option value="dark">Dark / Inchis</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Dimensiune maxima de upload in MB:</h6>
+                                        <small>Este important de stiut limita serverul dvs.</small>
+                                        <input type="number" class="form-control typoControl" id="max_file_size"/>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Editor de imagini:</h6>
+                                        <select class="form-control typoControl" id="enable_image_editor">
+                                            <option value="true">Activ</option>
+                                            <option value="false">Inactiv</option>
+                                        </select>
+                                        <div class="errorMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Editare trimis de:</h6>
+                                        <select id="enable_edit_from" class="form-control typoControl">
+                                            <option value="true">Da</option>
+                                            <option value="false">Nu</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Editare subiect email:</h6>
+                                        <select id="enable_edit_subject" class="form-control typoControl">
+                                            <option value="true">Da</option>
+                                            <option value="false">Nu</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Editare mesaj email:</h6>
+                                        <select id="enable_edit_message" class="form-control typoControl">
+                                            <option value="true">Da</option>
+                                            <option value="false">Nu</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Cookie Policy / Politica Cookie-uri:</h6>
+                                        <textarea id="cookie_policy" class="form-control editor" style="resize:none; min-height: 400px;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <h6>Termeni si conditii:</h6>
+                                        <textarea id="terms_policy" class="form-control editor" style="resize:none; min-height: 400px;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row mb-2">
+                        <div class="col-md-12" id="saveAppSettingsDiv">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-outline-primary update-app-settings typoSubmit"><i class="fa-solid fa-floppy-disk"></i> Salveaza</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pt-5 my-5 text-muted border-top">
+        <small>
+            &copy <span id="app_name_admin"></span>. <span id="admin_copyright_text"></span>
+        </small>
+    </footer>
+
+</div>
+
+<!--page title stuff -->
+
+<span id="pageTitle" style="display: none;">
+    Setari aplicatie
+</span>
+
+
+<script src="../js/libs/bootstrap5.3.1/bootstrap.min.js"></script>
+<script src="../js/libs/bootstrap5.3.1/bootstrap.bundle.min.js"></script>
+<!-- jQuery -->
+<script src="../js/libs/jquery-3.7.0.min.js"></script>
+<!-- Admin js -->
+<script src="../js/admin.js"></script>
+<!-- Form Validation Handler -->
+<script src="../js/libs/typoFormMain.js"></script>
+<script src="../js/libs/typoForm.js"></script>
+<!-- SMTP Settings JS -->
+<script src="../js/app_settings.js"></script>
+<!-- TinyMCE -->
+<script src="../js/libs/ckeditor5-build-classic/ckeditor.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.editor').each(function(index, element) {
+            const textarea = $('.editor').eq(index);
+
+            ClassicEditor
+                .create( element, {
+                    toolbar: [
+                        'undo', 'redo',
+                        '|', 'heading',
+                        '|', 'link', 'blockQuote',
+                        '|', 'bulletedList', 'numberedList', 'sourceEditing',
+                    ]
+                } )
+                .then(editor => {
+                    window.editor = editor;
+                    // Listen for changes in CKEditor and update the <textarea> value
+                    editor.model.document.on('change:data', () => {
+                        $(element).text(editor.getData());
+                    });
+                })
+                .catch( handleSampleError );
+
+            function handleSampleError( error ) {
+                const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
+
+                const message = [
+                    'Oops, something went wrong!',
+                    `Please, report the following error on ${ issueUrl } with the build id "bn330isq8cij-qyh8t72ssh4f" and the error stack trace:`
+                ].join( '\n' );
+
+                console.error( message );
+                console.error( error );
+            }
+
+        });
+
+    });
+</script>
+</body>
+</html>

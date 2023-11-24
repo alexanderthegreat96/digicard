@@ -1,0 +1,8 @@
+Upload everything
+Apply chmod 777 to the following directories:
+ - default_images
+ - generated_images
+ - php/databases
+
+ Createa new admin account in case everything is wiped:
+ Execute core/create_admin.php

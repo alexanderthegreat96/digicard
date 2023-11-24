@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box
+}
+.form-generat-meme {
+    display:none;
+}
+.generated-image-div{
+    display:none;
+}
+.fileUpload{
+    display:none;
+}
+#amm-brushes{
+    display: none;
+}
+
+#amm-preview-responsive {
+    display:none;
+}
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.header {
+    text-align: center;
+    padding: 32px
+}
+
+.column {
+    float: left;
+    width: 33.3%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.column img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both
+}
+/**
+Fonts
+ */
+
+@font-face {
+    font-family: Scriptin;
+    src: url('fonts/SCRIPTIN.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: Scripalt;
+    src: url('fonts/SCRIPALT.ttf')  format('truetype');
+}
+@font-face {
+    font-family: AlexBrush;
+    src: url('fonts/AlexBrush-Regular.ttf')  format('truetype');
+}
+@font-face {
+    font-family: GreatVibes;
+    src: url('fonts/GreatVibes-Regular.ttf')  format('truetype');
+}
+
+/**
+* Hover effect for loaded images
+ */
+
+.loadedImage {
+    /* Add your regular styling for the image here */
+    width: auto; /* Example width */
+    height: auto; /* Example height */
+    transition: transform 0.3s ease-in-out;
+}
+
+.loadedImage:hover {
+    transform: scale(1.1); /* Increase scale on hover */
+    /* Add any other hover-specific styles you want */
+}
+
+
+/* By default, keep the image normal (no filter) */
+img#logo-image {
+    filter: none;
+}
+
+/*!* Apply filter to invert the image only in dark mode *!*/
+/*@media (prefers-color-scheme: dark) {*/
+/*    img#logo-image {*/
+/*        filter: invert(1);*/
+/*    }*/
+/*}*/
+
+/*@media (prefers-color-scheme: light) {*/
+/*    img#logo-image {*/
+/*        filter: none;*/
+/*    }*/
+/*}*/

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eroare 500</title>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/ico" href="icons/favicon.ico">
+    <!-- Boostrap CSS -->
+    <link href="css/boostrap5.3.1/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" type="text/css" href="js/libs/fontawesome-6.2.4/css/all.min.css">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 100px;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<span id="pageTitle" style="display: none;">
+    500 Error
+</span>
+
+<body>
+<div class="container center-container">
+    <div class="row">
+        <div class="col-md-12 error-container">
+            <h1 class="display-4"><i class="fa-solid fa-triangle-exclamation"></i> 500 Eroare Internă de Server</h1>
+            <p class="lead">Oops! S-a întâmplat ceva.</p>
+            <p>Revino mai târziu sau încearcă să te duci înapoi.</p>
+            <a href="#" class="btn btn-primary" id="app_url_link"><i class="fa-solid fa-house"></i> Du-te acasa!</a>
+        </div>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="js/libs/jquery-3.7.0.min.js"></script>
+<!--App Settings -->
+<script src="js/index_settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <title>Digicard App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <!-- Image Maker CSS -->
+    <link rel="stylesheet" type="text/css" href="js/libs/image-merge-edit-draw-maker/imageMaker.css">
+    <!-- Boostrap CSS -->
+    <link href="css/boostrap5.3.1/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" type="text/css" href="js/libs/fontawesome-6.2.4/css/all.min.css">
+    <!-- Icon -->
+    <link rel="icon" type="image/ico" href="icons/favicon.ico">
+    <style>
+        .invalid{
+            border: 1px solid red;
+        }
+        .valid{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-12 p-3">
+            <div class="header">
+                <h3>Alege un e-card</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg text-center">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" id="refreshImages">
+                        <i class="fa-solid fa-arrows-rotate"></i> Alege alte e-carduri
+                    </button>
+                </div>
+            </div>
+            <div class="row" id="imageGrid" style="max-height: 700px; overflow-y: auto">
+                <!-- Images will be added here -->
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-12 p-3">
+            <div class="header">
+                <h3>Completează datele</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg p-2">
+                    <p class="text-center">
+                        <img id="logo-image" src=""
+                             style="width: 30%; object-fit: contain;"/>
+                    </p>
+                    <p class="text-center">
+                        <b>Instrucțiuni de folosire</b>
+                    </p>
+                    <p class="text-center">
+                        Alege un e-card din partea stânga și apoi completează datele din acest formular, pentru a trimite acest e-card prietenilor
+                    </p>
+                    <form class="border rounded-3 p-4" >
+                        <input type="hidden" id="langCode" value="ro">
+                        <input type="hidden" id="csrf_token" value=""/>
+
+
+                        <div class="row mb-2" id="sent_from_row">
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <b><label>Cum te numești?</label></b>
+                                    <input type="text" class="form-control form-control-sm typoControl"
+                                           placeholder="mă numesc Alex" id="send_from_name" data-length="4"/>
+                                    <div class="errorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <b><label>Cui vrei să trimiți<span id="send_from_name_text"></span>?</label></b>
+                                    <input type="text" class="form-control form-control-sm typoControl"
+                                           placeholder="lui George" id="send_to_name" data-length="4" />
+                                    <div class="errorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <b><label>Ce adresă de email folosește<span id="send_to_name_text"></span>?</label></b>
+                                    <input type="email" class="form-control form-control-sm typoControl"
+                                           placeholder="georgemuresan@gmail.com" id="send_to_email" data-length="5"/>
+                                    <div class="errorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2" id="subject_row">
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <b><label>Subiect:</label></b>
+                                    <input type="text" class="form-control form-control-sm typoControl"
+                                           placeholder="DigiCard E-Card" id="send_to_subject" data-length="5" value="Felicitare Digicard"/>
+                                    <div class="errorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2 generated-image-div">
+                            <div class="col-lg">
+                                <div id="generated-image"></div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="generated_image_filename" value=""/>
+
+                        <div class="row mb-2" id="message_row">
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <b><label>Mesaj:</label></b>
+                                    <textarea id="send_to_body" class="form-control w-100 typoControl" style="min-height: 200px;resize:none;"
+                                              placeholder="Ce ma bucur ca te-am revazut!" data-length="10">Salut, e fain aici!</textarea>
+                                    <div class="errorMsg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-lg">
+                                <div id="sendMailFormResult"></div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" id="terms_check" type="checkbox" value="agree" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Sunt de acord cu <a href="#" data-bs-toggle="modal" data-bs-target="#terms-policy-modal">Termenii și condițiile</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <button id="submitCardForm" type="button" class="btn btn-outline-primary w-100 typoSubmit"><i
+                                    class="fa-regular fa-paper-plane"></i> Trimite
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg">
+            <div class="text-center">
+                <small>
+                    &copy <span id="app_name"></span>. <span id="copyright_text"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Image Modal-->
+
+<div class="modal" tabindex="-1" id="myImageModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Imagine</h5>
+                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img class="modal-content" id="modalImage" style="display: none;"/>
+                <div id="imageMakerContainer">
+                    <div id="imageMaker"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close btn-sm" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Închide</button>
+                <button type="button" class="btn btn-primary trigger-save-image btn-sm"><i class="fa-regular fa-floppy-disk"></i> Salvează modificările</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Notice Modal -->
+
+<div class="modal" tabindex="-1" id="noticeModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Info</h5>
+                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="message-content"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close btn-sm" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--page title stuff -->
+
+<span id="pageTitle" style="display: none;">
+    Acasă
+</span>
+
+
+<!-- Modal Policy -->
+<div class="modal fade" id="privacy-policy-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Politica de confidențialitate si cookies</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="cookie_policy_content" style="max-height: 500px; overflow-y: auto;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Terms -->
+<div class="modal fade" id="terms-policy-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Termeni și condiții</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="terms_policy_content" style="max-height: 500px; overflow-y: auto;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cookie Policy Banner -->
+<div id="cookieBanner" class="text-white bg-dark p-2 fixed-bottom  border-top border-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mb-2 p-2">
+                Informații legate de modulele cookie. <a href="#" data-bs-toggle="modal" data-bs-target="#privacy-policy-modal">Află mai multe</a>
+            </div>
+            <div class="col-md-4 text-right mb-2">
+                <button id="acceptCookies" class="btn btn-outline-success text-white"><i class="fa-solid fa-check"></i> Accept</button>
+                <button id="declineCookies" class="btn btn-outline-danger"><i class="fa-solid fa-x"></i> Refuz</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<!-- jQuery -->
+<script src="js/libs/jquery-3.7.0.min.js"></script>
+<!-- jQuery UI -->
+<script src="js/libs/jquery-ui_1.13.2.min.js"></script>
+<!-- jQuery UI Touch-->
+<script src="js/libs/jquery.ui.touch-punch_0.2.2.min.js"></script>
+<!-- Image Maker -->
+<script src="js/libs/image-merge-edit-draw-maker/imageMaker.js"></script>
+<!-- Popper Min -->
+<script src="js/libs/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/libs/bootstrap5.3.1/bootstrap.min.js"></script>
+<script src="js/libs/bootstrap5.3.1/bootstrap.bundle.min.js"></script>
+<!-- Form Validation Handler -->
+<script src="js/libs/typoFormMain.js"></script>
+<script src="js/libs/typoForm.js"></script>
+<!--App Settings -->
+<script src="js/index_settings.js"></script>
+<!-- Custom Scripts -->
+<script src="js/custom.js"></script>
+<!-- Cookie Stuff -->
+<script src="js/cookie.js"></script>
+</html>

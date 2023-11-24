@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="icon" type="image/ico" href="../icons/favicon.ico">
+    <title>Oradea Heritage - Admin Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/boostrap5.3.1/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" type="text/css" href="../js/libs/fontawesome-6.2.4/css/all.min.css">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+    </style>
+
+</head>
+<body class="text-center">
+<main class="form-signin">
+    <form>
+        <img class="mb-4" id="logo-image" src="" style="width: 70%; object-fit: contain;">
+        <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
+
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingUsername" placeholder="name@example.com">
+            <label for="floatingUsername">Username</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Parola</label>
+        </div>
+        <div class="row mb-2">
+            <div class="col-lg">
+                <div id="login-output"></div>
+            </div>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary sign-in" type="button"><i class="fa-solid fa-right-to-bracket"></i> Logare</button>
+        <p class="mt-5 mb-3 text-muted">&copy <span id="app_name_admin"></span>. <span id="admin_copyright_text"></span></p>
+    </form>
+</main>
+
+<span id="pageTitle" style="display: none;">
+    Admin Login
+</span>
+
+
+<!-- Boostrap Icons -->
+<script src="../js/libs/bootstrap5.3.1/bootstrap.min.js"></script>
+<script src="../js/libs/bootstrap5.3.1/bootstrap.bundle.min.js"></script>
+<!-- jQuery -->
+<script src="../js/libs/jquery-3.7.0.min.js"></script>
+<!-- Admin js -->
+<script src="../js/admin.js"></script>
+</body>
+</html>
