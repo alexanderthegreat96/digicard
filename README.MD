@@ -1,6 +1,9 @@
 ### Digicard 
 Javascript + PHP based postcard sharing application
 
+#### Requirements
+ - Web Server
+ - PHP 8.2 
 #### Installation
 
 Upload everything
