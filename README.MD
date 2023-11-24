@@ -25,7 +25,7 @@ Run:
  - light + dark themes
 
 #### Sreenshots
-<img src="https://i.ibb.co/RvB8NKf/digicard-admin-dark.jpg" style=" width:100px height:100px " />
-<img src="https://i.ibb.co/fQH05fw/digicard-admin-light.jpg" style=" width:100px ; height:100px " />
-<img src="https://i.ibb.co/2n5mTGG/digicard-dark.png" style=" width:100px ; height:100px " />
-<img src="https://i.ibb.co/CvKWTVN/digicard-light.png" style=" width:100px ; height:100px " />
+<img src="https://i.ibb.co/RvB8NKf/digicard-admin-dark.jpg"/>
+<img src="https://i.ibb.co/fQH05fw/digicard-admin-light.jpg"/>
+<img src="https://i.ibb.co/2n5mTGG/digicard-dark.png"/>
+<img src="https://i.ibb.co/CvKWTVN/digicard-light.png"/>
