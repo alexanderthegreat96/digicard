@@ -25,8 +25,7 @@ Run:
  - light + dark themes
 
 #### Sreenshots
-
-![Admin Dark](https://ibb.co/ZLY9Sr5 "Admin Dark")
-![Admin Light](https://ibb.co/d7DKqFY "Admin Light")
-![Home Dark](https://ibb.co/Lkvb3VV "Home Dark")
-![Home Light](https://ibb.co/92HGCyz "Home Light")
+![image](https://ibb.co/ZLY9Sr5)
+![image](https://ibb.co/d7DKqFY)
+![image](https://ibb.co/Lkvb3VV)
+![image](https://ibb.co/92HGCyz)
