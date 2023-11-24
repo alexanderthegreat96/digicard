@@ -25,7 +25,7 @@ Run:
  - light + dark themes
 
 #### Sreenshots
-![image](https://ibb.co/ZLY9Sr5)
-![image](https://ibb.co/d7DKqFY)
-![image](https://ibb.co/Lkvb3VV)
-![image](https://ibb.co/92HGCyz)
+<img src="https://ibb.co/ZLY9Sr5" style=" width:100px ; height:100px " />
+<img src="https://ibb.co/d7DKqFY" style=" width:100px ; height:100px " />
+<img src="https://ibb.co/Lkvb3VV" style=" width:100px ; height:100px " />
+<img src="https://ibb.co/92HGCyz" style=" width:100px ; height:100px " />
