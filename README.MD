@@ -22,3 +22,10 @@ Run:
  - cookies
  - user management
  - fully no-sql
+ - light + dark themes
+
+#### Sreenshots
+ - https://ibb.co/ZLY9Sr5
+ - https://ibb.co/d7DKqFY
+ - https://ibb.co/92HGCyz
+ - https://ibb.co/Lkvb3VV
